@@ -11,13 +11,14 @@ config_version=5
 [application]
 
 config/name="Gissa Ordet"
+run/main_scene="uid://bb6pnpg8na4o2"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://Assets/icon.svg"
 
 [display]
 
 window/stretch/mode="canvas_items"
-window/stretch/aspect="expand"
+window/stretch/aspect="keep_width"
 
 [physics]
 
