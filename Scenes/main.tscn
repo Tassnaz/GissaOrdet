@@ -11,7 +11,7 @@ offset_top = 43.0
 offset_right = 872.0
 offset_bottom = 184.0
 theme_override_font_sizes/font_size = 30
-text = "World label"
+text = "Word label"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -44,3 +44,5 @@ offset_right = 772.0
 offset_bottom = 355.0
 text = "Tries Left:
 "
+
+[connection signal="pressed" from="GuessButton" to="." method="_on_guess_button_pressed"]
