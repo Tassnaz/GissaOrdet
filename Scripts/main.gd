@@ -1,8 +1,9 @@
 extends Node2D
 
-var word_list: Array = ["Guccikeps", "Ejnar", "Allardismen"]
+var word_list: Array = ["GUCCIKEPS", "EJNAR", "ALLARDISMEN"]
 
 var current_word: String = ""
+var scrambled_word: String = ""
 var tries_left: int = 5
 
 @onready var world_label: Label = $WordLabel
@@ -13,18 +14,26 @@ var tries_left: int = 5
 
 func _ready() -> void:
 	new_word()
-	world_label.text = current_word
+	world_label.text = scrambled_word
 
 func new_word():
 	current_word = word_list.pick_random()
+	scrambled_word = scramble_word(current_word)
 	
-	
+func scramble_word(word: String) -> String:
+	var letters: Array = word.split("")
+	var result: String = word
+	while result == word:
+		letters.shuffle()
+		return "".join(letters)
+	return result
+
 func _on_guess_button_pressed() -> void:
 	if guess_input.text == current_word:
 		feedback_label.text = "Correct"
 		new_word()
 		guess_input.clear()
-		world_label.text = current_word
+		world_label.text = scrambled_word
 		
 	else:
 		feedback_label.text = "Wrong"
