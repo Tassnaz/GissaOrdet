@@ -6,7 +6,7 @@ var current_word: String = ""
 var scrambled_word: String = ""
 var tries_left: int = 5
 
-@onready var world_label: Label = $WordLabel
+@onready var word_label: Label = $WordLabel
 @onready var guess_input: LineEdit = $GuessInput
 @onready var guess_button: Button = $GuessButton
 @onready var feedback_label: Label = $FeedbackLabel
@@ -14,7 +14,8 @@ var tries_left: int = 5
 
 func _ready() -> void:
 	new_word()
-	world_label.text = scrambled_word
+	word_label.text = scrambled_word
+	guess_input.grab_focus()
 
 func new_word():
 	current_word = word_list.pick_random()
@@ -33,7 +34,8 @@ func _on_guess_button_pressed() -> void:
 		feedback_label.text = "Correct"
 		new_word()
 		guess_input.clear()
-		world_label.text = scrambled_word
+		word_label.text = scrambled_word
+		guess_input.grab_focus()
 		
 	else:
 		feedback_label.text = "Wrong"

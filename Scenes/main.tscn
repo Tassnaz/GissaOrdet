@@ -11,10 +11,10 @@ offset_bottom = 740.0
 color = Color(0.92550695, 0.75642353, 0.9249262, 0.5882353)
 
 [node name="WordLabel" type="Label" parent="." unique_id=32937344]
-offset_left = -799.0
-offset_top = 173.0
-offset_right = -186.0
-offset_bottom = 314.0
+offset_left = 283.0
+offset_top = 19.0
+offset_right = 896.0
+offset_bottom = 160.0
 theme_override_font_sizes/font_size = 30
 text = "Scrambled Word"
 horizontal_alignment = 1
