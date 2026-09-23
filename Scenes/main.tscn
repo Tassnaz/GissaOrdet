@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://bb6pnpg8na4o2"]
 
 [ext_resource type="Script" uid="uid://cb5vfhpngjde1" path="res://Scripts/main.gd" id="1_jjgbg"]
+[ext_resource type="AudioStream" uid="uid://bb6n73yugng7h" path="res://Assets/SFX/freesound_gamestudio-button-394464.mp3" id="2_bo1nx"]
+[ext_resource type="AudioStream" uid="uid://yswobamd2umu" path="res://Assets/SFX/freesound_community-wrong-100536.mp3" id="3_8gbba"]
 
 [node name="Main" type="Node2D" unique_id=915940459]
 script = ExtResource("1_jjgbg")
@@ -11,43 +13,69 @@ offset_bottom = 740.0
 color = Color(0.92550695, 0.75642353, 0.9249262, 0.5882353)
 
 [node name="WordLabel" type="Label" parent="." unique_id=32937344]
-offset_left = 283.0
-offset_top = 19.0
-offset_right = 896.0
-offset_bottom = 160.0
-theme_override_font_sizes/font_size = 30
+offset_left = 310.0
+offset_top = 158.0
+offset_right = 923.0
+offset_bottom = 299.0
+theme_override_font_sizes/font_size = 50
 text = "Scrambled Word"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="GuessInput" type="LineEdit" parent="." unique_id=954959844]
-offset_left = 451.0
-offset_top = 321.0
-offset_right = 706.0
-offset_bottom = 363.0
-
-[node name="GuessButton" type="Button" parent="." unique_id=1236603813]
-offset_left = 538.0
-offset_top = 238.0
-offset_right = 593.0
-offset_bottom = 283.0
-text = "Guess
-"
+offset_left = 423.0
+offset_top = 386.0
+offset_right = 817.6428
+offset_bottom = 451.0
+keep_editing_on_text_submit = true
 
 [node name="FeedbackLabel" type="Label" parent="." unique_id=778652395]
-offset_left = 776.0
-offset_top = 214.0
-offset_right = 914.0
-offset_bottom = 237.0
+offset_left = 501.0
+offset_top = 341.0
+offset_right = 759.0
+offset_bottom = 383.0
 theme_override_font_sizes/font_size = 30
-text = "Correct/Incorrect "
+text = "Correct"
+horizontal_alignment = 1
 
 [node name="TriesLeftlabel" type="Label" parent="." unique_id=2029184764]
-offset_left = 732.0
-offset_top = 332.0
-offset_right = 772.0
-offset_bottom = 355.0
+offset_left = 832.0
+offset_top = 400.0
+offset_right = 936.0
+offset_bottom = 499.0
+theme_override_font_sizes/font_size = 22
 text = "Tries Left:
 "
 
-[connection signal="pressed" from="GuessButton" to="." method="_on_guess_button_pressed"]
+[node name="ScoreLabel" type="Label" parent="." unique_id=1216339467]
+offset_left = 344.0
+offset_top = 404.0
+offset_right = 417.0
+offset_bottom = 439.0
+theme_override_font_sizes/font_size = 25
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScoreSFX" type="AudioStreamPlayer" parent="." unique_id=1107474500]
+stream = ExtResource("2_bo1nx")
+
+[node name="IncorrectSFX" type="AudioStreamPlayer" parent="." unique_id=752252749]
+stream = ExtResource("3_8gbba")
+
+[node name="Timer" type="Timer" parent="." unique_id=1857546381]
+wait_time = 15.0
+one_shot = true
+autostart = true
+
+[node name="TimerLabel" type="Label" parent="." unique_id=637835273]
+offset_left = 571.0
+offset_top = 458.0
+offset_right = 692.0
+offset_bottom = 500.0
+theme_override_font_sizes/font_size = 30
+text = "Time: 10"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="text_changed" from="GuessInput" to="." method="_on_guess_input_text_changed"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://djkhhixo34c7e"]
+
+[ext_resource type="Script" uid="uid://bibyfpqr4onmy" path="res://Scenes/menu.gd" id="1_1rerr"]
+
+[node name="Menu" type="Node2D" unique_id=1901048833]
+script = ExtResource("1_1rerr")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1759378059]
+offset_right = 1281.0
+offset_bottom = 720.0
+color = Color(0.98566777, 0.82423663, 0.69433004, 1)
+
+[node name="ScoreLabel" type="Label" parent="." unique_id=1744130921]
+offset_left = 538.0
+offset_top = 195.0
+offset_right = 727.0
+offset_bottom = 336.0
+theme_override_font_sizes/font_size = 50
+text = "Score: 0
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PlayAgainButton" type="Button" parent="." unique_id=1120767161]
+offset_left = 555.0
+offset_top = 317.0
+offset_right = 712.0
+offset_bottom = 385.0
+theme_override_font_sizes/font_size = 27
+text = "Play again"
+
+[node name="QuitButton" type="Button" parent="." unique_id=16132321]
+offset_left = 555.0
+offset_top = 411.0
+offset_right = 712.0
+offset_bottom = 479.0
+theme_override_font_sizes/font_size = 27
+text = "Quit
+"
+
+[connection signal="pressed" from="PlayAgainButton" to="." method="_on_play_again_button_pressed"]
+[connection signal="pressed" from="QuitButton" to="." method="_on_quit_button_pressed"]

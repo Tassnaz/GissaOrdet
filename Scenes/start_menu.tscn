@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://ccssaqq75y3iv"]
+
+[ext_resource type="Script" uid="uid://kdtidjlqcyh" path="res://Scenes/start_menu.gd" id="1_juhg0"]
+
+[node name="StartMenu" type="Node2D" unique_id=220440242]
+script = ExtResource("1_juhg0")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1987882921]
+offset_right = 1280.0
+offset_bottom = 720.0
+color = Color(0.7820096, 0.943164, 0.73687315, 1)
+
+[node name="Label" type="Label" parent="ColorRect" unique_id=222897253]
+layout_mode = 0
+offset_left = 303.0
+offset_top = 120.0
+offset_right = 903.0
+offset_bottom = 261.0
+theme_override_font_sizes/font_size = 50
+text = "Guess the food (svenska)
+"
+
+[node name="StartButton" type="Button" parent="." unique_id=608086535]
+offset_left = 510.0
+offset_top = 313.0
+offset_right = 718.0
+offset_bottom = 403.0
+theme_override_font_sizes/font_size = 50
+text = "Start"
+
+[connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
