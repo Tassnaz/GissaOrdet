@@ -16,6 +16,7 @@ func _ready() -> void:
 	new_word()
 	word_label.text = scrambled_word
 	guess_input.grab_focus()
+	tries_left_label.text = str(tries_left)
 
 func new_word():
 	current_word = word_list.pick_random()
@@ -39,4 +40,6 @@ func _on_guess_button_pressed() -> void:
 		
 	else:
 		feedback_label.text = "Wrong"
+		tries_left -= 1
+		tries_left_label.text = str(tries_left)
 		guess_input.clear()
